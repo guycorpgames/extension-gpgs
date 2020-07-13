@@ -23,7 +23,7 @@ struct GPGS
     jmethodID               m_logout;
     jmethodID               m_activityResult;
     jmethodID               m_getDisplayName;
-    jmethodID               m_getUserEmail;
+    jmethodID               m_getEmail;
     jmethodID               m_getId;
     jmethodID               m_getIdToken;
     jmethodID               m_getServerAuthCode;
@@ -298,9 +298,9 @@ static int GpgsAuth_getDisplayName(lua_State* L)
     return CallStringMethod(L, g_gpgs.m_GpgsJNI, g_gpgs.m_getDisplayName);
 }
 
-static int GpgsAuth_getUserEmail(lua_State* L)
+static int GpgsAuth_getEmail(lua_State* L)
 {
-    return CallStringMethod(L, g_gpgs.m_GpgsJNI, g_gpgs.m_getUserEmail);
+    return CallStringMethod(L, g_gpgs.m_GpgsJNI, g_gpgs.m_getEmail);
 }
 
 static int GpgsAuth_getId(lua_State* L)
@@ -756,7 +756,7 @@ static const luaL_reg Gpgs_methods[] =
     {"logout", GpgsAuth_Logout},
     {"silent_login", GpgsAuth_SilentLogin},
     {"get_display_name", GpgsAuth_getDisplayName},
-    {"get_user_email", GpgsAuth_getUserEmail},
+    {"get_user_email", GpgsAuth_getEmail},
     {"get_id", GpgsAuth_getId},
     {"get_id_token", GpgsAuth_getIdToken},
     {"get_server_auth_code", GpgsAuth_getServerAuthCode},
@@ -873,7 +873,7 @@ static void InitJNIMethods(JNIEnv* env, jclass cls)
     g_gpgs.m_logout = env->GetMethodID(cls, "logout", "()V");
     g_gpgs.m_isLoggedIn = env->GetMethodID(cls, "isLoggedIn", "()Z");
     g_gpgs.m_getDisplayName = env->GetMethodID(cls, "getDisplayName", "()Ljava/lang/String;");
-    g_gpgs.m_getUserEmail = env->GetMethodID(cls, "getUserEmail", "()Ljava/lang/String;");
+    g_gpgs.m_getEmail = env->GetMethodID(cls, "getEmail", "()Ljava/lang/String;");
     g_gpgs.m_getId = env->GetMethodID(cls, "getId", "()Ljava/lang/String;");
     g_gpgs.m_getIdToken = env->GetMethodID(cls, "getIdToken", "()Ljava/lang/String;");
     g_gpgs.m_getServerAuthCode = env->GetMethodID(cls, "getServerAuthCode", "()Ljava/lang/String;");

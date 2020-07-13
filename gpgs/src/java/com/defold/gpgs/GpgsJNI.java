@@ -309,8 +309,8 @@ public class GpgsJNI {
         return isLoggedIn() ? mPlayer.getDisplayName() : null;
     }
 
-    public String getUserEmail() {
-        return isLoggedIn() ? mSignedInAccount.getUserEmail() : null;
+    public String getEmail() {
+        return isLoggedIn() ? mPlayer.getEmail() : null;
     }
 
     public String getId() {
