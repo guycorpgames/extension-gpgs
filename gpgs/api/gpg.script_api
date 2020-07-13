@@ -79,6 +79,25 @@
 
 #*****************************************************************************************************
 
+  - name: get_user_email
+    type: function
+    desc: Get the current GPGS player email.
+
+    returns:
+      - name: name
+        type: string
+        desc: The player's email.
+
+    examples:
+      - desc: |-
+            ```lua
+            if gpgs then
+              local email = gpgs.get_user_email()
+            end
+            ```
+
+#*****************************************************************************************************
+
   - name: get_id
     type: function
     desc: Get the current GPGS player id.
