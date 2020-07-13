@@ -310,7 +310,7 @@ public class GpgsJNI {
     }
 
     public String getUserEmail() {
-        return isLoggedIn() ? mPlayer.getUserEmail() : null;
+        return isLoggedIn() ? mSignedInAccount.getUserEmail() : null;
     }
 
     public String getId() {
