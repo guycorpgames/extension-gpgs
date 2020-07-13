@@ -222,6 +222,8 @@ public class GpgsJNI {
                 builder.requestServerAuthCode(client_id);
             }
 
+            builder.requestEmail();
+
             mSignInOptions = builder.build();
         }
 
@@ -305,6 +307,10 @@ public class GpgsJNI {
 
     public String getDisplayName() {
         return isLoggedIn() ? mPlayer.getDisplayName() : null;
+    }
+
+    public String getUserEmail() {
+        return isLoggedIn() ? mPlayer.getUserEmail() : null;
     }
 
     public String getId() {
